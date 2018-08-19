@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-body">
+        <ngb-tabset>
+            <ngb-tab title="Enter text directly">
+                <ng-template ngbTabContent>
+                    <br>
+                    <div class="form-group">
+                        <textarea #inputText class="form-control" id="textInput" rows="5" placeholder="Enter text here"></textarea>
+                    </div>
+                    <button (click)="populateText(inputText.value)" class="btn btn-primary float-right">Submit</button>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Read text from file">
+                <ng-template ngbTabContent>
+                    <br>
+                    <div class="form-group">
+                        <label>Choose file containing text</label>
+                        <input type="file" class="form-control-file">
+                        <small class="form-text text-muted">
+                            Accepts txt, pdf files
+                        </small>
+                    </div>
+                    <button class="btn btn-primary float-right">Submit</button>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>

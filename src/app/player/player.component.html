@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="control-group">
+        <audio #audioPlayer controls>
+            <source type="audio/mp3" [src]="audioUrl">
+        </audio>
+        <div class="form-group">
+            <label>Voice select</label>
+            <select class="form-control cast-selector"  (change)="selectCast($event.target.value)">
+                <option *ngFor="let cast of casts; let i = index" value={{i}} [selected]="i==12">{{langMap[cast]}} ({{cast}})</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="control-group">
+        <button (click)="playPause()" class="btn btn-primary control-btn" >
+            <svg *ngIf="playing==false; else pauseTemp" class="playpause" xmlns="http://www.w3.org/2000/svg" width="6" height="16" viewBox="0 0 6 16"><path fill-rule="evenodd" d="M0 14l6-6-6-6v12z"/></svg>
+            <ng-template #pauseTemp><svg class="playpause" width="8" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 16">
+                    <g transform="rotate(90, 4, 8)" id="svg_4">
+                        <path id="svg_2" d="m0,8.989289l0,2.000029l8,0l0,-2.000029l-8,0z" fill-rule="evenodd"/>
+                        <path id="svg_3" d="m0,5.010739l0,1.999972l8,0l0,-1.999972l-8,0z" fill-rule="evenodd"/>
+                    </g>
+                </svg></ng-template>
+        </button>
+        <button (click)="stop()" class="btn btn-danger control-btn" >
+            <svg class="other" xmlns="http://www.w3.org/2000/svg" width="8" height="16" viewBox="0 0 8 16"><path fill-rule="evenodd" d="M8 12H0V4h8v8z"/></svg>
+        </button>
+        <input type="range" class="custom-range volumn-control" min="0" max="1" step="0.05" value="1" >
+    </div>
+</div>
+<div class="row">
+    <div class="col progress-controller">
+        <div class="btn-group-vertical">
+            <button (click)="playPrevious()" class="btn btn-primary" >
+                <svg class="other" xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16"><path fill-rule="evenodd" d="M10 10l-1.5 1.5L5 7.75 1.5 11.5 0 10l5-5 5 5z"/></svg>
+            </button>
+            <button (click)="playNext()" class="btn btn-primary" >
+                <svg class="other" xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16"><path fill-rule="evenodd" d="M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6l-5 5z"/></svg>
+            </button>
+        </div>
+    </div>
+    <div class="player-text-container col">
+        <pre class="player-text-display">{{textBefore}}<mark #playedText>{{textCurrent}}</mark>{{textAfter}}</pre>
+    </div>
+</div>

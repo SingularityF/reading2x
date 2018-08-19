@@ -1,0 +1,38 @@
+.volumn-control{
+    width:80px;
+    position:relative;
+    top:10px;
+}
+
+.cast-selector{
+    width:200px;
+}
+
+.progress-controller{
+    flex: 0 0 80px;
+}
+
+.control-btn{
+    margin:5px;
+}
+.control-group{
+    margin:0 auto;
+}
+.playpause{
+    width:75px;
+    height:40px;
+    fill: white;
+}
+.other{
+    width:25px;
+    height:30px;
+    fill: white;
+}
+.player-text-container {
+    min-height: 200px;
+    height:50vh;
+    overflow: auto;
+}
+.player-text-display{
+    white-space: pre-wrap;
+}
